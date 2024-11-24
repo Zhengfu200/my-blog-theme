@@ -1,0 +1,158 @@
+/* 
+Theme Name: My Blog Theme
+Theme URI: http://zhengfu200.us.kg
+Author: zhengfu200
+Author URI: http://zhengfu200.us.kg
+Description: A simple WordPress theme for a blog with a banner, post list, sidebar, and comments.
+Version: 1.0
+*/
+/* 顶部Banner样式 */
+header {
+    background: none;
+    position: relative;
+    height: 100vh; /* 设置高度为屏幕的一半 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    overflow: hidden; /* 确保超出的部分被隐藏 */
+}
+
+h1.site-title a {
+    display: none; /* 完全隐藏站点名称链接 */
+}
+
+/* 用于放置标题和简介 */
+.banner-content {
+    max-width: 80%;
+    position: relative; 
+    z-index: 1; 
+    text-align: center;
+}
+
+.banner-content h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.banner-content .site-description {
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+/*标题打字效果*/
+#typed-title {
+    font-size: 3em;
+    white-space: nowrap; /* 保证文本不会换行 */
+    overflow: hidden; /* 隐藏超出的部分，制造打字效果 */
+    border-right: 3px solid gray; /* 显示打字光标 */
+    animation: blink-cursor 0.75s step-end infinite; /* 光标闪烁动画 */
+}
+
+@keyframes blink-cursor {
+    from { border-right-color: gray; }
+    to { border-right-color: transparent; }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    background-image: url('https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/1263950/6435b6b4474dcbc990237c91c45f8d90868948c4.jpg'); /* 指定背景图片的路径 */
+    background-size: cover; /* 确保背景图片始终覆盖整个屏幕 */
+    background-position: center; /* 背景居中显示 */
+    background-repeat: no-repeat; /* 禁止背景图片重复 */
+    background-attachment: fixed; /* 背景固定，滚动页面时背景不移动 */
+    margin: 0; /* 移除默认的边距 */
+    padding: 0;
+    min-height: 100vh; /* 确保背景至少覆盖整个视口高度 */
+}
+
+.site-description {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.content {
+    display: flex;
+    margin: 20px;
+}
+
+.content .main {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.content .post-content{
+    background-color: #ffffff; /* 白色背景 */
+    padding: 20px; /* 为文章内容添加内边距 */
+    border-radius: 8px; /* 可选：为文章内容添加圆角 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 可选：添加阴影效果 */
+}
+
+.content .comments{
+    background-color: #ffffff; /* 白色背景 */
+    padding: 20px; /* 为文章内容添加内边距 */
+    border-radius: 8px; /* 可选：为文章内容添加圆角 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 可选：添加阴影效果 */
+}
+
+.content .sidebar {
+    width: 300px;
+    background-color: #fff;
+    padding: 20px;
+}
+
+.post-list {
+    list-style: none;
+    padding: 0;
+}
+
+.post-list li {
+    background-color: white;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.post-list a {
+    text-decoration: none;
+    color: #333;
+}
+
+.post-list a:hover {
+    color: #0073e6;
+}
+
+.post-title {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.post-meta {
+    font-size: 0.9em;
+    color: #777;
+}
+
+.post-content {
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+.comments {
+    margin-top: 40px;
+}
+
+footer {
+    background: none;
+    text-align: center; /* 居中对齐 */
+    color: gray; /* 灰色字体 */
+    font-style: italic; /* 斜体 */
+    padding: 20px 0; /* 添加适当的内边距 */
+}
+
+
+
+
