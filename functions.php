@@ -8,3 +8,12 @@ function my_blog_enqueue_styles() {
 }
 
 add_action('wp_enqueue_scripts', 'my_blog_enqueue_styles');
+
+function register_my_menus() {
+    register_nav_menus(
+        array(
+            'top-menu' => __( 'Top Navigation Menu' )
+        )
+    );
+}
+add_action( 'after_setup_theme', 'register_my_menus' );

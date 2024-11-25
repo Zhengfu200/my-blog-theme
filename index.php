@@ -11,17 +11,18 @@
     <div class="main">
         <ul class="post-list">
             <?php
-            if (have_posts()) :
-                while (have_posts()) : the_post();
-            ?>
-                <li>
-                    <h2 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                    <p class="post-meta">By <?php the_author(); ?> | <?php the_time('F j, Y'); ?></p>
-                    <p class="post-excerpt"><?php the_excerpt(); ?></p>
-                </li>
-            <?php
+            if (have_posts()):
+                while (have_posts()):
+                    the_post();
+                    ?>
+                    <li>
+                        <h2 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                        <p class="post-meta">By <?php the_author(); ?> | <?php the_time('F j, Y'); ?></p>
+                        <p class="post-excerpt"><?php the_excerpt(); ?></p>
+                    </li>
+                    <?php
                 endwhile;
-            else :
+            else:
                 echo '<p>No posts found.</p>';
             endif;
             ?>
@@ -37,7 +38,7 @@
 
 <!--标题打字动画（实验性）-->
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         var blogTitle = "<?php bloginfo('name'); ?>"; // 获取博客标题
         var typedTitleElement = document.getElementById("typed-title");
         var charIndex = 0;
@@ -53,4 +54,3 @@
         typeTitle(); // 开始打字动画
     });
 </script>
-

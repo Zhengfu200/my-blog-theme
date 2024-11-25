@@ -6,11 +6,15 @@ Author URI: http://zhengfu200.us.kg
 Description: A simple WordPress theme for a blog with a banner, post list, sidebar, and comments.
 Version: 1.0
 */
+
+/* 样式化顶部工具栏 */
+
+
 /* 顶部Banner样式 */
 header {
     background: none;
     position: relative;
-    height: 100vh; /* 设置高度为屏幕的一半 */
+    height: 30vh; /* 设置高度为屏幕的一半 */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,6 +29,7 @@ h1.site-title a {
 
 /* 用于放置标题和简介 */
 .banner-content {
+    color: white;
     max-width: 80%;
     position: relative; 
     z-index: 1; 
@@ -55,17 +60,17 @@ h1.site-title a {
     to { border-right-color: transparent; }
 }
 
-/* 确保工具栏背景颜色应用 */
-#wpadminbar {
-    background-color: rgba(255, 255, 255, 0.5) !important; /* 白色背景，透明度50% */
+/* 确保父容器 .content-wrapper 使用 Flexbox 布局 */
+.content-wrapper {
+    display: flex; /* 使用 Flexbox 布局 */
+    align-items: flex-start; /* 确保两个元素从顶部对齐 */
 }
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    background-image: url('https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/items/1263950/6435b6b4474dcbc990237c91c45f8d90868948c4.jpg'); /* 指定背景图片的路径 */
+    background-color: #16A085;
     background-size: cover; /* 确保背景图片始终覆盖整个屏幕 */
     background-position: center; /* 背景居中显示 */
     background-repeat: no-repeat; /* 禁止背景图片重复 */
@@ -86,8 +91,8 @@ body {
 }
 
 .content .main {
-    flex: 1;
-    margin-right: 20px;
+    flex-grow: 1; /* 使主内容区域占用剩余空间 */
+    padding: 20px; /* 内边距 */
 }
 
 .content .post-content{
@@ -105,9 +110,14 @@ body {
 }
 
 .content .sidebar {
+    border-radius: 10px;
     width: 300px;
     background-color: #fff;
     padding: 20px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
 .post-list {
@@ -133,12 +143,13 @@ body {
 
 .post-title {
     font-size: 1.5em;
-    margin: 0;
+    margin-left: 10;
 }
 
 .post-meta {
     font-size: 0.9em;
-    color: #777;
+    margin-left: 10;
+    font-style: italic;
 }
 
 .post-content {
@@ -150,14 +161,160 @@ body {
     margin-top: 40px;
 }
 
-footer {
-    background: none;
-    text-align: center; /* 居中对齐 */
-    color: gray; /* 灰色字体 */
-    font-style: italic; /* 斜体 */
-    padding: 20px 0; /* 添加适当的内边距 */
+/* 样式化左侧栏 */
+.left-sidebar {
+    width: 250px; /* 设置左侧栏的宽度 */
+    background-color: #f4f4f4; /* 左侧栏背景颜色 */
+    padding: 20px; /* 内边距 */
+    display: flex; /* 使用 Flexbox 布局 */
+    flex-direction: column; /* 垂直排列元素 */
+    align-items: center; /* 内容居中对齐 */
+    text-align: center; /* 文本居中 */
+    border-right: 2px solid #ddd; /* 右侧边框 */
 }
 
+/* 博客标题样式 */
+.left-sidebar .site-title {
+    font-size: 30px; /* 字体大小 */
+    font-weight: bold; /* 加粗标题 */
+    margin-bottom: 20px; /* 标题与其他内容的间距 */
+}
+
+/* 站点简介样式 */
+.left-sidebar .site-description p {
+    font-size: 16px; /* 字体大小 */
+    color: #555; /* 文字颜色 */
+    margin-bottom: 20px; /* 间距 */
+}
+
+/* 站长名称样式 */
+.left-sidebar .site-author p {
+    font-size: 16px;
+    color: #333; /* 站长名称颜色 */
+    font-style: italic; /* 斜体 */
+}
+
+/* 主内容区域样式 */
+.main-content {
+    margin-left: 70px; /* 给左侧栏留出空间 */
+    padding: 20px; /* 内边距 */
+}
+
+
+footer {
+    width: 70%; /* 设置宽度为70% */
+    margin: 0 auto; /* 水平居中 */
+    border-radius: 10px;
+    background-color: #ffffff;
+    text-align: center;
+    /*居中对齐*/color: gray;
+    /*灰色字体*/font-style: italic;
+    /*斜体*/padding: 20px 0;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* 背景覆盖层 */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8); /* 半透明背景 */
+    z-index: 9999; /* 确保覆盖在所有内容之上 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 加载动画 */
+.loader {
+    border: 6px solid #f3f3f3; /* 灰色背景 */
+    border-top: 6px solid #3498db; /* 蓝色圆圈 */
+    border-radius: 50%;
+    width: 50px; /* 动画大小 */
+    height: 50px; /* 动画大小 */
+    animation: spin 1s linear infinite; /* 动画设置 */
+}
+
+/* 旋转动画 */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* 顶部导航栏的样式 */
+.top-nav {
+    display: flex; /* 使用 Flexbox 布局 */
+    justify-content: flex-start; /* 将内容对齐到左侧 */
+    position: fixed; /* 固定定位，始终显示在页面顶部 */
+    top: 0; /* 从页面顶部开始 */
+    left: 0; /* 居左对齐 */
+    width: 100%; /* 使其宽度填满整个页面 */
+    background: none;
+    color: #fff; /* 字体颜色 */
+    padding: 10px 0; /* 上下内边距 */
+    z-index: 1000; /* 确保它位于其他内容之上 */
+}
+
+.site-icon {
+    margin-right: 20px; /* 图标与菜单之间的间距 */
+}
+
+.site-icon img {
+    margin-left: 10px;
+    align-items: center; /* 垂直居中 */
+    width: 30px; /* 设置图标的大小 */
+    height: 30px;
+    border-radius: 50%; /* 圆形图标 */
+}
+
+.top-nav .top-menu {
+    list-style: none; /* 去掉默认的列表样式 */
+    padding: 0;
+    margin: 0;
+    display: inline-flex; /* 横向排列菜单项 */
+}
+
+.top-nav .top-menu li {
+    margin: 0 20px; /* 菜单项之间的间距 */
+}
+
+.top-nav .top-menu li a {
+    align-items: center;
+    color: #fff; /* 链接文字颜色 */
+    text-decoration: none; /* 去掉下划线 */
+    font-size: 18px; /* 字体大小 */
+    transition: color 0.3s ease; /* 添加过渡效果 */
+}
+
+.top-nav .top-menu li a:hover {
+    color: #f39c12; /* 鼠标悬停时文字颜色 */
+}
+
+.top-bar {
+    background:none;
+    position: fixed; /* 固定定位，始终显示在页面顶部 */
+    top: 0; /* 从页面顶部开始 */
+    left: 0; /* 居左对齐 */
+    width: 100%; /* 使其宽度填满整个页面 */
+    color: #fff; /* 字体颜色 */
+    padding: 10px 0; /* 上下内边距 */
+    z-index: 500; /* 确保它位于其他内容之上 */
+}
+
+.top-bar-content {
+    display: flex; /* 使用 Flexbox 布局 */
+    justify-content: space-between; /* 左右对齐内容 */
+    align-items: center; /* 垂直居中 */
+    padding: 0 20px; /* 内容的左右内边距 */
+}
 
 
 
