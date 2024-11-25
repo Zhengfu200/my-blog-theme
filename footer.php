@@ -86,6 +86,7 @@
         z-index: 10001;
         white-space: nowrap;
         /* 阻止菜单中的项目换行 */
+        transition: max-height 0.5s ease-out;
     }
 
     /* 菜单显示时 */

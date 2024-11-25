@@ -88,6 +88,7 @@ body {
 .content {
     display: flex;
     margin: 20px;
+    align-items: flex-start;
 }
 
 .content .main {
@@ -269,10 +270,18 @@ footer {
 
 .site-icon img {
     margin-left: 10px;
-    align-items: center; /* 垂直居中 */
-    width: 30px; /* 设置图标的大小 */
-    height: 30px;
+    width: 35px; /* 设置图标的大小 */
+    height: 35px;
     border-radius: 50%; /* 圆形图标 */
+}
+
+.top-menu{
+    display: inline-flex;
+
+}
+
+.top-nav{
+    background-color: #2C3E50;
 }
 
 .top-nav .top-menu {
@@ -286,34 +295,23 @@ footer {
     margin: 0 20px; /* 菜单项之间的间距 */
 }
 
+.top-menu .site-title{
+    font-weight: 500    ;
+    align-items: center;
+    color: #fff; /* 链接文字颜色 */
+}
+
 .top-nav .top-menu li a {
+    font-weight: 500    ;
     align-items: center;
     color: #fff; /* 链接文字颜色 */
     text-decoration: none; /* 去掉下划线 */
-    font-size: 18px; /* 字体大小 */
+    font-size: 20px; /* 字体大小 */
     transition: color 0.3s ease; /* 添加过渡效果 */
 }
 
 .top-nav .top-menu li a:hover {
     color: #f39c12; /* 鼠标悬停时文字颜色 */
-}
-
-.top-bar {
-    background:none;
-    position: fixed; /* 固定定位，始终显示在页面顶部 */
-    top: 0; /* 从页面顶部开始 */
-    left: 0; /* 居左对齐 */
-    width: 100%; /* 使其宽度填满整个页面 */
-    color: #fff; /* 字体颜色 */
-    padding: 10px 0; /* 上下内边距 */
-    z-index: 500; /* 确保它位于其他内容之上 */
-}
-
-.top-bar-content {
-    display: flex; /* 使用 Flexbox 布局 */
-    justify-content: space-between; /* 左右对齐内容 */
-    align-items: center; /* 垂直居中 */
-    padding: 0 20px; /* 内容的左右内边距 */
 }
 
 

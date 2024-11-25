@@ -27,6 +27,12 @@ _deprecated_file(
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
+<!-- 引入 Bootstrap CSS -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入 Bootstrap JS 和 Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
 	<?php if (file_exists(get_stylesheet_directory() . '/images/kubrickbgwide.jpg')) { ?>
 		<style type="text/css" media="screen">
 			<?php
@@ -58,29 +64,18 @@ _deprecated_file(
 </head>
 
 <body <?php body_class(); ?>>
-	<header>
-
-
-		<!-- 顶部固定栏 -->
-		<div class="top-bar">
-			<div class="top-bar-content">
-				<!-- 顶部导航栏 -->
-				<nav class="top-nav">
-					<!-- 站点图标 -->
-					<div class="site-icon">
-						<img src="https://cravatar.cn/avatar/78CD89824BF8BB11AC9A6797EFA9A78B" alt="Site Icon" />
-					</div>
-
-					<?php
-					wp_nav_menu(array(
-						'theme_location' => 'top-menu', // 使用注册的菜单位置
-						'container' => false, // 不使用 div 包裹
-						'menu_class' => 'top-menu', // 设置菜单的类名
-						'fallback_cb' => false, // 如果没有菜单，什么都不显示
-					));
-					?>
-				</nav>
-			</div>
-		</div>
-	</header>
-	<div id="page">
+<header>
+	<div class="top-menu">
+		<nav class="top-nav">
+				<?php
+				wp_nav_menu(array(
+					'theme_location' => 'top-menu', // 使用注册的菜单位置
+					'container' => false, // 不使用 div 包裹
+					'menu_class' => 'top-menu', // 设置菜单的类名
+					'fallback_cb' => false, // 如果没有菜单，什么都不显示
+				));
+			?>
+		</nav>
+	</div>
+</header>
+<div id="page">
